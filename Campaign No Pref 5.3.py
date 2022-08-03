@@ -20,6 +20,8 @@ Volunteers= {
     'K':{1:Ps, 2:Lp, 3:Ps, 4:Lp, 5:Ps}
 }
 
+# here we find the most wanted shift with summing total preference of each shift and then with sorting them.
+# ici on trouve le shift prefere avec ... tout les numeros et puis le ... .
 Popular=[]
 while Shift<=All_Shifts:
     Sum=0
@@ -30,10 +32,12 @@ while Shift<=All_Shifts:
     Shift+=1
 Popular.sort()
 
+#now that we know the most wanted shift, we start with that.
 for i in Popular:
     Shift=int(i[5])
-    Vol_Sub=Volunteers
+    Vol_Sub=Volunteers.copy()
     Vol_Sort=[]
+    # let it be a bit random
     for key in Vol_Sub:
         if Vol_Sub[key][Shift]>0:
             Vol_Sub[key][Shift]+=round(random.random()/100, 4)
